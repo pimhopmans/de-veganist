@@ -2,6 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { recipes } from "@/lib/mock/recipes";
 
+export async function generateStaticParams() {
+  return recipes.map((recipe: { id: string }) => ({
+    id: recipe.id,
+  }));
+}
+
 export default async function RecipePage({
   params,
 }: {
