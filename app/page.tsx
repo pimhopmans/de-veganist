@@ -1,65 +1,96 @@
-import Image from "next/image";
+"use client";
+import RecipeCard from "@/components/RecipeCard";
+import { recipes } from "@/lib/mock/recipes";
+import { scrollTo } from "@/lib/window/scroll";
+import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function HomePage() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+  const sortedRecipes = filteredRecipes.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+
+  const updateSearchQuery = (query: string) => {
+    setSearchQuery(query);
+  };
+
+  useEffect(() => {
+    if (searchQuery.trim() === "") {
+      setFilteredRecipes(recipes);
+    } else {
+      const lowerCaseQuery = searchQuery.toLowerCase();
+      const filtered = sortedRecipes.filter((recipe) => {
+        const inTitle = recipe.title.toLowerCase().includes(lowerCaseQuery);
+        const inIngredients = recipe.ingredients
+          ? recipe.ingredients.some((ingredient) =>
+              ingredient.toLowerCase().includes(lowerCaseQuery)
+            )
+          : false;
+        return inTitle || inIngredients;
+      });
+      setFilteredRecipes(filtered);
+    }
+  }, [searchQuery]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div>
+      <section
+        className="relative flex flex-col min-h-[60vh] justify-center"
+        style={{
+          backgroundImage: "url('/images/hero-1.jpg')",
+          objectFit: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        {/* Background image */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* Content */}
+        <div className="relative mx-auto w-full max-w-5xl px-6 space-y-6">
+          <h1 className="max-w-2xl text-3xl font-semibold text-white md:text-4xl">
+            Een verzameling van vegan recepten — eenvoudig, overzichtelijk en
+            lekker.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          <button
+            onClick={() => scrollTo("recepten")}
+            className="inline-block rounded-lg bg-green-600 px-6 py-3 text-white hover:bg-green-900"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            Bekijk recepten
+          </button>
+        </div>
+      </section>
+
+      <section id="recepten" className="mt-10">
+        {/* Search bar */}
+        <div className="w-full min-w-[200px] mb-4">
+          <div className="relative">
+            <input
+              className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pl-3 pr-28 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+              value={searchQuery}
+              placeholder="Zoek op recept of ingrediënten..."
+              onChange={(e) => updateSearchQuery(e.target.value)}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
+
+        {/* Recipe list */}
+        {sortedRecipes.map((recipe) => (
+          <div key={recipe.id} className="mb-4">
+            <RecipeCard key={recipe.id} recipe={recipe} />
+          </div>
+        ))}
+      </section>
+
+      <footer>
+        <div className="mt-20 mb-5 text-center text-sm text-stone-500">
+          &copy; {new Date().getFullYear()} De Veganist. Alle rechten
+          voorbehouden.
+        </div>
+      </footer>
     </div>
   );
 }
