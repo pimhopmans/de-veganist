@@ -88,7 +88,7 @@ export default function HomePage() {
       <footer>
         <div className="mt-20 mb-5 text-center text-sm text-stone-500">
           &copy; {new Date().getFullYear()} De Veganist. Alle rechten
-          voorbehouden.
+          voorbehouden. Made by Pim Hopmans.
         </div>
       </footer>
     </div>
