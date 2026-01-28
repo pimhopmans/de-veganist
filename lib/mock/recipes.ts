@@ -29,7 +29,7 @@ export const recipes: Recipe[] = [
       "Verwarm de pijnboompitten in een aparte pan tot ze mooi goudbruin zijn. Blijf erbij staan, want ze bakken snel aan!",
       "Roer de pasta door de spinazie en serveer met de pijnboompitten.",
     ],
-    tips: ["Gebruik verse spinazie voor extra smaak"],
+    tips: [],
     tags: ["Italiaans", "pasta", "comfort"],
     url: "https://foxilicious.nl/recept-vegan-pasta-spinazie/",
   },
