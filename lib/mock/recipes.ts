@@ -31,6 +31,7 @@ export const recipes: Recipe[] = [
     ],
     tips: ["Gebruik verse spinazie voor extra smaak"],
     tags: ["Italiaans", "pasta", "comfort"],
+    url: "https://foxilicious.nl/recept-vegan-pasta-spinazie/",
   },
   {
     id: "avg-met-krieltjes",
@@ -66,6 +67,7 @@ export const recipes: Recipe[] = [
       "Lekker met mayo!",
     ],
     tags: ["Nederlands", "AVG", "snel", "makkelijk"],
+    url: "https://uitpaulineskeuken.nl/recept/krieltjes-uit-de-airfryer",
   },
   {
     id: "blauwe-bessen-tulband",
@@ -110,6 +112,7 @@ export const recipes: Recipe[] = [
       "Dit recept werkt ook met verse blauwe bessen!",
     ],
     tags: ["zoet", "bakken", "dessert"],
+    url: "https://vegafoodness.nl/blauwe-bessen-tulband-cake/",
   },
   {
     id: "zelf-pindakaas-maken",
@@ -136,6 +139,7 @@ export const recipes: Recipe[] = [
       "Experimenteer met de baktijd van de pinda's voor een mildere of juist intensere smaak.",
     ],
     tags: ["homemade", "ontbijt"],
+    url: "https://branderijjoost.nl/Blog/zelf-pindakaas-maken-in-3-eenvoudige-stappen/",
   },
   {
     id: "chili-sin-carne",
@@ -173,6 +177,7 @@ export const recipes: Recipe[] = [
       "Extra lekker met zelfgemaakte tortillachips met za'atar en guacamole.",
     ],
     tags: ["Mexicaans", "comfort"],
+    url: "https://www.leukerecepten.nl/recepten/chili-con-carne/",
   },
   {
     id: "broccolisoep",
@@ -200,6 +205,7 @@ export const recipes: Recipe[] = [
     ],
     tips: ["Een stukje brood bij de soep is altijd lekker!"],
     tags: ["soep", "snel", "makkelijk"],
+    url: "https://www.leukerecepten.nl/recepten/broccolisoep-recept/",
   },
   {
     id: "havermout-proteinerepen",
@@ -229,6 +235,7 @@ export const recipes: Recipe[] = [
     ],
     tips: ["Heb je geen proteïnepoeder? Vervang dit dan door extra havermout."],
     tags: ["bakken", "snack", "gezond"],
+    url: "https://vegetus.nl/havermout-proteinerepen/",
   },
   {
     id: "vegan-turkse-pizza",
@@ -242,6 +249,7 @@ export const recipes: Recipe[] = [
     instructions: ["", "", ""],
     tips: [""],
     tags: [""],
+    url: "",
   },
 ];
 
@@ -268,4 +276,5 @@ export const recipes: Recipe[] = [
 //     "",
 //   ],
 //   tags: [""],
+// url: "";
 // },

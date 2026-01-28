@@ -101,8 +101,19 @@ export default async function RecipePage({
           </div>
         )}
 
-        {/* Empty section */}
-        <section />
+        {/* Original recipe */}
+        <section>
+          <div className="mt-4">
+            <a
+              href={recipe.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground hover:bg-primary/90 py-2 rounded-lg text-sm font-medium transition-colors hover:underline"
+            >
+              Bekijk het originele recept
+            </a>
+          </div>
+        </section>
 
         {/* Tips */}
         {recipe.tips && recipe.tips.length > 0 && (
