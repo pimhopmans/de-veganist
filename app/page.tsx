@@ -8,7 +8,7 @@ export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
   const sortedRecipes = filteredRecipes.sort((a, b) =>
-    a.title.localeCompare(b.title)
+    a.title.localeCompare(b.title),
   );
 
   const updateSearchQuery = (query: string) => {
@@ -24,7 +24,7 @@ export default function HomePage() {
         const inTitle = recipe.title.toLowerCase().includes(lowerCaseQuery);
         const inIngredients = recipe.ingredients
           ? recipe.ingredients.some((ingredient) =>
-              ingredient.toLowerCase().includes(lowerCaseQuery)
+              ingredient.toLowerCase().includes(lowerCaseQuery),
             )
           : false;
         return inTitle || inIngredients;
@@ -38,7 +38,7 @@ export default function HomePage() {
       <section
         className="relative flex flex-col min-h-[60vh] justify-center"
         style={{
-          backgroundImage: "url('/images/hero-1.jpg')",
+          backgroundImage: "url('/de-veganist/images/hero-1.jpg')",
           objectFit: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
