@@ -135,7 +135,7 @@ export const recipes: Recipe[] = [
     ],
     tips: [
       "Als je denkt dat het niet romig genoeg is, kun je een klein beetje plantaardige olie toevoegen.",
-      "Voeg zelf extra's toe zoals honing, chocolade of kokosrasp voor een unieke smaak!",
+      "Voeg zelf extra's toe zoals chocolade of kokosrasp voor een unieke smaak!",
       "Experimenteer met de baktijd van de pinda's voor een mildere of juist intensere smaak.",
     ],
     tags: ["homemade", "ontbijt"],
