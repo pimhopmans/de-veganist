@@ -1,5 +1,6 @@
 "use client";
 import RecipeCard from "@/components/RecipeCard";
+import { getImagePath } from "@/lib/image";
 import { recipes } from "@/lib/mock/recipes";
 import { scrollTo } from "@/lib/window/scroll";
 import { useEffect, useState } from "react";
@@ -38,7 +39,7 @@ export default function HomePage() {
       <section
         className="relative flex flex-col min-h-[60vh] justify-center"
         style={{
-          backgroundImage: "url('/de-veganist/images/hero-1.jpg')",
+          backgroundImage: `url('${getImagePath("aubergine-stoof.jpg")}')`,
           objectFit: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

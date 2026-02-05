@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { recipes } from "@/lib/mock/recipes";
+import { getImagePath } from "@/lib/image";
 
 export async function generateStaticParams() {
   return recipes.map((recipe: { id: string }) => ({
@@ -41,7 +42,7 @@ export default async function RecipePage({
       {recipe.image && (
         <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
           <Image
-            src={recipe.image}
+            src={getImagePath(recipe.image)}
             alt={recipe.title}
             fill
             className="object-cover"
@@ -127,6 +128,13 @@ export default async function RecipePage({
           </section>
         )}
       </section>
+
+      <footer>
+        <div className="mt-20 mb-5 text-center text-sm text-stone-500">
+          &copy; {new Date().getFullYear()} De Veganist. Alle rechten
+          voorbehouden.
+        </div>
+      </footer>
     </article>
   );
 }
