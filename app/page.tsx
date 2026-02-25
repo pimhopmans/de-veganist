@@ -4,6 +4,7 @@ import { getImagePath } from "@/lib/image";
 import { recipes } from "@/lib/mock/recipes";
 import { scrollTo } from "@/lib/window/scroll";
 import { useEffect, useState } from "react";
+import { worksansFont } from "../lib/fonts";
 
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -35,7 +36,7 @@ export default function HomePage() {
   }, [searchQuery]);
 
   return (
-    <div>
+    <div className={worksansFont.className}>
       <section
         className="relative flex flex-col min-h-[60vh] justify-center"
         style={{

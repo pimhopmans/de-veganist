@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { recipes } from "@/lib/mock/recipes";
 import { getImagePath } from "@/lib/image";
+import { worksansFont } from "@/lib/fonts";
 
 export async function generateStaticParams() {
   return recipes.map((recipe: { id: string }) => ({
@@ -19,7 +20,9 @@ export default async function RecipePage({
 
   if (!recipe) {
     return (
-      <div className="max-w-3xl mx-auto py-16 text-center">
+      <div
+        className={`${worksansFont.className} max-w-3xl mx-auto py-16 text-center`}
+      >
         <h1 className="text-2xl font-semibold">Recept niet gevonden</h1>
         <p className="text-muted-foreground mt-2">
           Het recept dat je zoekt bestaat niet (meer).
@@ -29,7 +32,9 @@ export default async function RecipePage({
   }
 
   return (
-    <article className="max-w-4xl mx-auto px-4 space-y-10">
+    <article
+      className={`${worksansFont.className} max-w-4xl mx-auto px-4 space-y-10`}
+    >
       {/* Back button */}
       <Link
         href="/"
